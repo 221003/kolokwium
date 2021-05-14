@@ -51,7 +51,9 @@ class OvenTest {
     			.withTimeInMinutes(10)
     			.build();
     	
-    	BakingProgram bakingProgram = BakingProgram.builder().withInitialTemp(1).build();
+    	List<ProgramStage> programStages=  List.of(programStage);
+    	
+    	BakingProgram bakingProgram = BakingProgram.builder().withStages(programStages).build();
     	
 //    	when(heatingModule.termalCircuit(heatingSettings);).thenThrow(HeatingException.class);
     	doThrow(HeatingException.class).when(heatingModule).termalCircuit(heatingSettings);
